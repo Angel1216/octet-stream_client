@@ -1,15 +1,12 @@
 
-function testWS2(){
+function filePDF(){
 
     var json = '{'+
-                    '"nombre":"'+ $('#txtNombre').val() +'",'+
-                    '"apellidoPaterno":"'+ $('#txtPaterno').val() +'",'+
-                    '"apellidoMaterno":"'+ $('#txtMaterno').val() +'",'+
-                    '"edad":"'+ $('#txtEdad').val() +'"'+
+                    '"typeFile":"3"'+
                 '}';
 
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:8092/PDF', true);
+    xhr.open('POST', 'http://localhost:8092/file', true);
     xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
     xhr.responseType = 'blob';
 
@@ -26,6 +23,6 @@ function testWS2(){
       }
     };
 
-    xhr.send(JSON.stringify(json));
+    xhr.send(JSON.stringify(eval('('+json+')')));
 
 }
